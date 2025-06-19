@@ -1,2 +1,2 @@
 # lexicon
-ATproto lexicon for HERA applications
+ATproto lexicons for biodiversity preservation
