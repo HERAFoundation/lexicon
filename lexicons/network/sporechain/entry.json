@@ -7,35 +7,53 @@
       "key": "tid",
       "record": {
         "type": "object",
-        "required": ["subject", "cid", "createdAt"],
+        "required": ["subject", "createdAt"],
         "properties": {
           "subject": {
             "type": "string",
             "description": "Scientific name",
+            "minLength": 1,
             "maxLength": 512
-          },
-          "cid": {
-            "type": "string",
-            "description": "IPFS CID of content",
-            "maxLength": 128
-          },
-          "previous": {
-            "type": "string",
-            "description": "Previous entry or 'genesis'",
-            "maxLength": 256
           },
           "tags": {
             "type": "array",
-            "description": "Searchable tags",
+            "description": "Searchable tags for discovery",
             "items": {
               "type": "string",
               "maxLength": 100
             },
             "maxLength": 20
           },
+          "data": {
+            "type": "object",
+            "description": "Inline content (metadata, small data)",
+            "maxGraphemeLength": 10000
+          },
+          "cid": {
+            "type": "string",
+            "description": "IPFS CID",
+            "maxLength": 128
+          },
+          "previous": {
+            "type": "string",
+            "format": "at-uri",
+            "description": "Previous entry in chain",
+            "maxLength": 256
+          },
+          "parents": {
+            "type": "array",
+            "description": "Parent entries",
+            "items": {
+              "type": "string",
+              "format": "at-uri",
+              "maxLength": 256
+            },
+            "maxLength": 10
+          },
           "createdAt": {
             "type": "string",
-            "format": "datetime"
+            "format": "datetime",
+            "description": "Timestamp of entry creation"
           }
         }
       }
