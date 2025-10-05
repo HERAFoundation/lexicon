@@ -12,7 +12,6 @@
           "subject": {
             "type": "string",
             "description": "Scientific name",
-            "minLength": 1,
             "maxLength": 512
           },
           "tags": {
@@ -26,19 +25,13 @@
           },
           "data": {
             "type": "object",
-            "description": "Inline content (metadata, small data)",
+            "description": "Inline content",
             "maxGraphemeLength": 10000
           },
           "cid": {
             "type": "string",
             "description": "IPFS CID",
             "maxLength": 128
-          },
-          "previous": {
-            "type": "string",
-            "format": "at-uri",
-            "description": "Previous entry in chain",
-            "maxLength": 256
           },
           "parents": {
             "type": "array",
@@ -48,12 +41,11 @@
               "format": "at-uri",
               "maxLength": 256
             },
-            "maxLength": 10
+            "maxLength": 3
           },
           "createdAt": {
             "type": "string",
-            "format": "datetime",
-            "description": "Timestamp of entry creation"
+            "format": "datetime"
           }
         }
       }
