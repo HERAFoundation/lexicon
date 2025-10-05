@@ -1,0 +1,25 @@
+{
+  "lexicon": 1,
+  "id": "earth.hera.taxon",
+  "defs": {
+    "main": {
+      "type": "record",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["scientificName", "createdAt"],
+        "properties": {
+          "scientificName": {
+            "type": "string",
+            "description": "Scientific name (binomial or uninomial)",
+            "maxLength": 512
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "datetime"
+          }
+        }
+      }
+    }
+  }
+}
